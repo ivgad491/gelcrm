@@ -1,0 +1,51 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#8272be">
+  <meta name="description" content="GEL / FLOW — производство, клиенты и заказы в одном пространстве">
+  <title>GEL / FLOW · Управление производством</title>
+  <link rel="manifest" href="{% static 'manifest.webmanifest' %}">
+  <link rel="icon" type="image/svg+xml" href="{% static 'icon.svg' %}">
+  <link rel="apple-touch-icon" href="{% static 'icon-192.png' %}">
+  <link rel="stylesheet" href="{% static 'app.css' %}">
+  <script src="{% static 'app.js' %}" defer></script>
+</head>
+<body>
+  <div id="login-screen" class="login-screen" hidden>
+    <div class="login-brand"><div class="brand-mark">g<span>/</span></div><span>GEL <b>/</b> FLOW</span></div>
+    <main class="login-card">
+      <div class="eyebrow">ПРОИЗВОДСТВО В ОДНОМ РИТМЕ</div>
+      <h1>Рады видеть вас.</h1>
+      <p class="muted">Войдите в рабочее пространство вашей команды.</p>
+      <form id="login-form" class="form-stack">
+        <label>Логин<input name="username" autocomplete="username" placeholder="Ваш логин" required autofocus></label>
+        <label>Пароль<div class="password-field"><input name="password" type="password" autocomplete="current-password" placeholder="Ваш пароль" required><button type="button" id="show-password" aria-label="Показать пароль">◉</button></div></label>
+        <div id="login-error" class="form-error" role="alert" hidden></div>
+        <button class="button primary login-submit" type="submit">Войти в пространство <span>↗</span></button>
+      </form>
+      <div class="login-note"><span class="status-dot"></span> Личный доступ · Единая база · История действий</div>
+    </main>
+    <p class="login-footer">От первого оттенка до готового заказа.</p>
+  </div>
+  <div id="app" class="app-layout" hidden>
+    <aside id="sidebar" class="sidebar">
+      <a class="brand" href="#dashboard"><div class="brand-mark">g<span>/</span></div><span>GEL <b>/</b> FLOW<small>ПРОСТРАНСТВО ПРОИЗВОДСТВА</small></span></a>
+      <div class="workspace-tag"><span class="status-dot"></span> Рабочее пространство <span>⌄</span></div>
+      <nav id="navigation" aria-label="Основная навигация"></nav>
+      <div class="sidebar-bottom"><div class="system-status"><span class="status-dot"></span> Соединение с сервером<small>Единый сервер вашей команды</small></div><button id="logout" class="profile-button" title="Выйти из аккаунта" aria-label="Выйти из аккаунта"><span id="avatar" class="avatar">А</span><span><strong id="user-name">Сотрудник</strong><small id="user-role"></small></span><span class="logout-icon" title="Выйти">↗</span></button></div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="workspace">
+      <header class="topbar"><div class="topbar-left"><button id="menu-toggle" class="icon-button mobile-menu" aria-label="Открыть меню">☰</button><span class="breadcrumb">Рабочее пространство <span>/</span> <strong id="breadcrumb-page">Обзор</strong></span></div><div class="topbar-right"><span id="today" class="today"></span><button id="refresh" class="icon-button" aria-label="Обновить данные" title="Обновить данные">↻</button><button id="notifications-button" class="icon-button notification-button" aria-label="Уведомления"><span id="notification-icon"></span><span id="notification-count" class="notification-dot" hidden></span></button></div></header>
+      <main id="content" tabindex="-1" aria-live="polite"><div class="loading"><span class="spinner"></span> Загружаем рабочее пространство…</div></main>
+      <footer class="workspace-footer"><span>GEL / FLOW</span><span>Всё, что нужно для слаженной работы.</span></footer>
+    </div>
+  </div>
+  <dialog id="modal"><div class="modal-header"><div><div id="modal-eyebrow" class="eyebrow">GEL / FLOW</div><h2 id="modal-title"></h2></div><button id="close-modal" class="icon-button" aria-label="Закрыть">✕</button></div><div id="modal-body"></div></dialog>
+  <div id="toast-region" class="toast-region" role="status" aria-live="polite"></div>
+  <div id="boot-error" hidden class="boot-error"></div>
+</body>
+</html>

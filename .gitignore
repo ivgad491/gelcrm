@@ -1,0 +1,10 @@
+.venv/
+.env
+*.sqlite3*
+__pycache__/
+.pytest_cache/
+private_backups/
+staticfiles/
+*.pyc
+.coverage
+celerybeat-schedule*

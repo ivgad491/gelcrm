@@ -1,0 +1,14 @@
+.git
+.venv
+.env
+db.sqlite3
+db.sqlite3-*
+private_backups
+staticfiles
+__pycache__
+*.pyc
+.pytest_cache
+.coverage
+htmlcov
+*.zip
+*.tar.gz
